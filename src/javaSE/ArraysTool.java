@@ -31,6 +31,6 @@ public class ArraysTool {
 		System.out.println(arr1);
 		System.out.println(arr2);
 		
-		System.out.println("second");
+		System.out.println("third");
 	}
 }
