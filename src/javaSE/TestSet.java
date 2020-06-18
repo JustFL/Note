@@ -38,6 +38,7 @@ class SetItem{
 	public int hashCode() {
 		return id+name.hashCode();
 	}
+	
 	@Override
 	public boolean equals(Object obj) {
 		SetItem item = (SetItem)obj;
@@ -54,8 +55,10 @@ public class TestSet {
 		
 		/**
 		 * HashSet存储数据过程 底层是hash表(类似于数组+链表)
-		 * 先取对象hashcode()的值 如果值相同 再对对象调用equals方法  看对象是否完全一致  
+		 * 先取对象hashcode()的值 如果hashcode()值对应位置上没有数据 直接存放 
+		 * 如果hashcode()值相同 再对对象调用equals方法  看对象是否完全一致  
 		 * 如果hashcode值相同 equals值不相同 则在底层数组的相同hashcode值位置上创建一条链表 进行存储
+		 * 链表太长的话导致查找太慢 在链表长度超过8的时候 转化为二叉树
 		 * 
 		 * 下面创建的是TreeSet 底层数据结构是二叉树 每个节点的子节点不超过两个
 		 * 每个节点包括一个数据域和两个链域 分别指向左节点和右节点 左节点存小的  右边存储大的
@@ -83,7 +86,7 @@ public class TestSet {
 		hashSet.add(i3);
 		System.out.println(hashSet);
 		
-		
+		//TreeSet是根据CompareTo方法进行去重的... return 0就会被去重 不懂...
 		SortedSet<String> set = new TreeSet<>();
 		set.add("cc");
 		set.add("aa");

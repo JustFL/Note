@@ -39,8 +39,8 @@ class Tree implements Comparable<Tree>{
 
 public class TestCompare {
 	public static void main(String[] args) {
-		Tree t1 = new Tree(30, 20);
-		Tree t2 = new Tree(20, 50);
+		Tree t1 = new Tree(60, 20);
+		Tree t2 = new Tree(50, 40);
 		List<Tree> list = new ArrayList<>();
 		list.add(t1);
 		list.add(t2);
