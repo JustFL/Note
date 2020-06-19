@@ -29,6 +29,21 @@ class Lazy{
 	}
 }
 
+class StandLazy{
+	private static StandLazy s = null;
+	private StandLazy() {}
+	public static StandLazy getInstance() {
+		if (s == null) {
+			synchronized (s.getClass()) {
+				if (s == null) {
+					s = new StandLazy();
+				}
+			}
+		}
+		return s;
+	}
+}
+
 public class Singleton {
 	public static void main(String[] args) {
 		Hungry h1 = Hungry.getInstance();
